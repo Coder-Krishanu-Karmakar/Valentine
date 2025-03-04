@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Data to Ngrok</title>
+</head>
+<body>
+    <h2>Send Data to My PC</h2>
+    <button onclick="sendData()">Send Data</button>
+
+    <script>
+        function sendData() {
+            const data = { message: "Hello from GitHub Pages!" };
+
+            fetch("https://random-subdomain.ngrok.io", {  // Replace with your Ngrok URL
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => console.log("Server response:", data))
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
